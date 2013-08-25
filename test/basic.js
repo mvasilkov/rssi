@@ -4,6 +4,16 @@ var should = require('should'),
 function eq(a, b) { a.should.equal(b) }
 
 describe('rssi', function () {
+    it('should be a function', function () {
+        fmt.should.be.a('function')
+    })
+
+    it('should return function returning string', function () {
+        var t = fmt('')
+        t.should.be.a('function')
+        t({}).should.be.a('string')
+    })
+
     it('should interpolate things', function () {
         var c1 = {from: 'meters', to: 'feet', mul: 3.28},
             c2 = {from: 'kilojoules', to: 'BTUs', mul: 0.9478},
