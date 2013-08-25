@@ -1,0 +1,20 @@
+{
+    "name": "rssi",
+    "version": "0.0.1",
+    "description": "Ruby-like simple string interpolation",
+    "author": "Mark Vasilkov <mvasilkov@gmail.com>",
+    "main": "rssi",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:mvasilkov/rssi.git"
+    },
+    "devDependencies": {
+        "jshint": "2.x",
+        "mocha": "1.x",
+        "should": "1.x"
+    },
+    "license": "MIT"
+}
