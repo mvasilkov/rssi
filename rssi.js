@@ -1,5 +1,7 @@
 (function () {
-    function rewrite(foo, bar) { return '"+obj["' + bar + '"]+"' }
+    function rewrite(foo, bar) {
+        return '"+(typeof obj["' + bar + '"]!="undefined"?obj["' + bar + '"]:"' + foo + '")+"'
+    }
 
     function fmt(input) {
         var out = JSON.stringify(input).replace(/#\{(.*?)\}/g, rewrite)
