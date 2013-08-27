@@ -23,4 +23,12 @@ describe('subterfuge', function () {
         t({'9': '9', 'X': 'X'}).should.equal('#{2} X #{4}')
         t(function fgsfds() {}).should.equal('#{2} #{X} #{4}')
     })
+
+    it('should disregard nested format strings', function () {
+        var t = fmt('win#{r#{a}r}')
+
+        t({}).should.equal('win#{r#{a}r}')
+        t({a: 'a'}).should.equal('win#{r#{a}r}')
+        t({'r#{a': 'ra'}).should.equal('winrar}')
+    })
 })
