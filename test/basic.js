@@ -1,15 +1,15 @@
-var should = require('should'),
+var assert = require('assert'),
     fmt = require('../rssi')
 
-function eq(a, b) { a.should.equal(b) }
+function eq(a, b) { assert.strictEqual(a, b) }
 
 describe('rssi', function () {
-    it('should be a function', function () { fmt.should.be.a('function') })
+    it('should be a function', function () { eq(typeof fmt, 'function') })
 
     it('should return function returning string', function () {
         var t = fmt('')
-        t.should.be.a('function')
-        t({}).should.be.a('string')
+        eq(typeof t, 'function')
+        eq(typeof t({}), 'string')
     })
 
     it('should retain plain text', function () {
