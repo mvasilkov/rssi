@@ -15,7 +15,8 @@
     "devDependencies": {
         "jshint": "2.x",
         "mocha": "1.x",
-        "browserify": "2.x"
+        "browserify": "2.x",
+        "bower": "1.x"
     },
     "license": "MIT"
 }
