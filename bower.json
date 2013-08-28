@@ -1,6 +1,6 @@
 {
     "name": "rssi",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "rssi.js",
     "devDependencies": {
         "requirejs": "2.x"
