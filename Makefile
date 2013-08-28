@@ -3,6 +3,7 @@ mocha = node_modules/.bin/mocha
 browserify = node_modules/.bin/browserify
 bower = node_modules/.bin/bower
 npm = npm
+git = git
 
 all: node_modules jshint mocha assert.js bower_components
 
@@ -20,3 +21,6 @@ assert.js: node_modules
 
 bower_components: node_modules bower.json
 	@ $(bower) install
+
+clean:
+	@ $(git) clean -dfx
