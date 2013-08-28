@@ -1,4 +1,4 @@
 .DS_Store
+/assert.js
 /bower_components/
 /node_modules/
-/test_client/assert.js

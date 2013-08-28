@@ -4,7 +4,7 @@ browserify = node_modules/.bin/browserify
 bower = node_modules/.bin/bower
 npm = npm
 
-all: node_modules jshint mocha browserify bower
+all: node_modules jshint mocha assert.js bower_components
 
 node_modules: package.json
 	@ $(npm) install
@@ -15,8 +15,8 @@ jshint: node_modules
 mocha: node_modules
 	@ $(mocha) -R spec
 
-browserify: node_modules
-	@ $(browserify) -r assert -s assert -o test_client/assert.js
+assert.js: node_modules
+	@ $(browserify) -r assert -s assert -o assert.js
 
-bower: node_modules
+bower_components: node_modules bower.json
 	@ $(bower) install
