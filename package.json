@@ -1,6 +1,6 @@
 {
     "name": "rssi",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Ruby-like simple string interpolation",
     "keywords": ["interpolation", "string", "template"],
     "author": "Mark Vasilkov <mvasilkov@gmail.com>",

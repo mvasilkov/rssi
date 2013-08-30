@@ -1,3 +1,6 @@
+/* Ruby-like simple string interpolation for Node.js
+ * Copyright (c) 2013 Mark Vasilkov (https://github.com/mvasilkov)
+ * License: MIT */
 (function () {
     function rewrite(foo, bar) {
         return '"+(typeof obj["' + bar + '"]!="undefined"?obj["' + bar + '"]:"' + foo + '")+"'
