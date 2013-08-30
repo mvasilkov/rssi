@@ -11,4 +11,5 @@
 
     if (typeof module != 'undefined' && module.exports) module.exports = fmt
     else if (typeof define == 'function' && define.amd) define(function () { return fmt })
+    else if (typeof window != 'undefined') window.fmt = fmt
 }())
