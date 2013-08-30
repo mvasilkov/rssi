@@ -1,3 +1,23 @@
 rssi
 ----
 Ruby-like simple string interpolation for Node.js
+
+Installation
+------------
+    npm install rssi
+    bower install rssi
+    wget http://bit.ly/getrssi -O rssi.js
+
+Usage
+-----
+    var hello = fmt('hello, #{thing}')
+
+    hello({thing: 'world'})
+    // -> hello, world
+
+    hello({thing: 'shawarma'})
+    // -> hello, shawarma
+
+License
+-------
+MIT
