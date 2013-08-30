@@ -11,7 +11,7 @@ node_modules: package.json
 	@ $(npm) install
 
 jshint: node_modules
-	@ $(jshint) rssi.js test/*.js
+	@ $(jshint) rssi.js test/*.js usage/*.js
 
 mocha: node_modules
 	@ $(mocha) -R spec
