@@ -2,6 +2,7 @@ var assert = require('assert'),
     fmt = require('../rssi')
 
 function eq(a, b) { assert.strictEqual(a, b) }
+function noeq(a, b) { assert.notEqual(a, b) }
 
 describe('rssi', function () {
     it('should be a function', function () { eq(typeof fmt, 'function') })
@@ -27,5 +28,10 @@ describe('rssi', function () {
         eq(t(c1), 'Multiply by 3.28 to convert from meters to feet.')
         eq(t(c2), 'Multiply by 0.9478 to convert from kilojoules to BTUs.')
         eq(t(c3), 'Multiply by 1024 to convert from megabytes to gigabytes.')
+    })
+
+    it('should cache templates', function () {
+        eq(fmt('#{a}'), fmt('#{a}'))
+        noeq(fmt('#{a}'), fmt('#{b}'))
     })
 })

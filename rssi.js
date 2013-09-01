@@ -12,7 +12,7 @@
         if (input in cache) return cache[input]
 
         var out = JSON.stringify(input).replace(/#\{(.*?)\}/g, rewrite)
-        /* jshint evil: true */
+        /* jshint boss: true, evil: true */
         return (cache[input] = Function('obj', 'return ' + out))
     }
 
