@@ -1,22 +1,22 @@
 /* Ruby-like simple string interpolation for Node.js
  * Copyright (c) 2013 Mark Vasilkov (https://github.com/mvasilkov)
  * License: MIT */
-(function(window) {
+(function() {
     "use strict";
-    var re = new RegExp('#\{(.*?)\}', 'g');
+    var re = new RegExp('#{(.*?)}', 'g');
 
     function rewrite(source, prop) {
-        return '"+(obj&&obj["' + prop + '"]||"' + source + '")+"';
+        return '"+(obj.hasOwnProperty("' + prop + '")&&obj["' + prop + '"]||"' + source + '")+"';
     }
 
     function fmt(input) {
-        input = input && input + '' || '';
+        input = JSON.stringify(typeof input === 'string' ? input : '');
         /* jshint evil: true */
-        return new Function('obj', 'return "' + input.replace(re, rewrite) + '"');
+        return new Function('obj', 'return obj && obj.hasOwnProperty ? ' + input.replace(re, rewrite) + ' : ' + input);
     }
 
-    if (window.module && window.module.exports) window.module.exports = fmt;
-    else if (typeof window.define === 'function' && window.define.amd) window.define(function() { return fmt; });
-    else window.fmt = fmt;
-    
-})(window);
+    if (typeof module !== 'undefined' && module.exports) module.exports = fmt;
+    else if (typeof define === 'function' && define.amd) define(function () { return fmt });
+    else if (typeof window !== 'undefined') window.fmt = fmt;
+
+}());
