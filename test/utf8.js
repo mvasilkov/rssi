@@ -1,7 +1,7 @@
 var assert = require('assert'),
     fmt = require('../rssi')
 
-String.prototype.equal = function (arg) { assert.equal(this, arg) }
+String.prototype.equal = function (arg) { assert.strictEqual('' + this, arg) }
 
 describe('utf8', function () {
     it('should support Unicode', function () {
