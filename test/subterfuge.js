@@ -1,7 +1,7 @@
 var assert = require('assert'),
     fmt = require('../rssi')
 
-String.prototype.equal = function (arg) { assert.equal(this, arg) }
+String.prototype.equal = function (arg) { assert.strictEqual(this, arg) }
 
 describe('subterfuge', function () {
     it('should handle awkward variable names', function () {
@@ -32,5 +32,20 @@ describe('subterfuge', function () {
         t({}).equal('win#{r#{a}r}')
         t({a: 'a'}).equal('win#{r#{a}r}')
         t({'r#{a': 'ra'}).equal('winrar}')
+    })
+
+    it('should handle all variable types', function () {
+        fmt()().equal('')
+        fmt('')().equal('')
+        fmt(null)().equal('')
+        fmt(false)().equal('')
+        fmt(true)().equal('')
+        fmt(NaN)().equal('')
+        fmt(Infinity)().equal('')
+        fmt(0)().equal('')
+        fmt(1)().equal('')
+        fmt([1,2])().equal('')
+        fmt({a:1})().equal('')
+
     })
 })
