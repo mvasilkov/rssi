@@ -6,7 +6,7 @@
     var re = new RegExp('#{(.*?)}', 'g');
 
     function rewrite(source, prop) {
-        return '"+(obj.hasOwnProperty("' + prop + '")&&obj["' + prop + '"]||"' + source + '")+"';
+        return '"+(obj.hasOwnProperty("' + prop + '")?obj["' + prop + '"]:"' + source + '")+"';
     }
 
     function fmt(input) {
