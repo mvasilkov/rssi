@@ -2,14 +2,18 @@
  * Copyright (c) 2013 Mark Vasilkov (https://github.com/mvasilkov)
  * License: MIT */
 (function () {
+    var cache = {}
+
     function rewrite(foo, bar) {
         return '"+(typeof obj["' + bar + '"]!="undefined"?obj["' + bar + '"]:"' + foo + '")+"'
     }
 
     function fmt(input) {
+        if (input in cache) return cache[input]
+
         var out = JSON.stringify(input).replace(/#\{(.*?)\}/g, rewrite)
         /* jshint evil: true */
-        return Function('obj', 'return ' + out)
+        return (cache[input] = Function('obj', 'return ' + out))
     }
 
     if (typeof module != 'undefined' && module.exports) module.exports = fmt
