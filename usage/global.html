@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RSSI</title>
+    </head>
+    <body>
+        <script src="../rssi.js"></script>
+        <script>
+            // global fmt
+            var hello = fmt('hello, #{thing}'),    // compile template
+                msg   = hello({thing: 'shawarma'}) // format message
+
+            document.write(msg) // -> hello, shawarma
+        </script>
+    </body>
+</html>
