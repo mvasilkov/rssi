@@ -2,8 +2,11 @@
     "name": "rssi",
     "version": "0.0.4",
     "description": "Ruby-like simple string interpolation",
-    "keywords": ["interpolation", "string", "template"],
-    "author": "Mark Vasilkov <mvasilkov@gmail.com>",
+    "keywords": ["interpolation", "string", "formatting", "template"],
+    "author": "Mark Vasilkov (https://github.com/mvasilkov)",
+    "contributors": [
+        "Viktor Konovalov (https://github.com/virpool)"
+    ],
     "main": "rssi",
     "scripts": {
         "test": "mocha"
