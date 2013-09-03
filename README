@@ -18,6 +18,9 @@ Usage
     hello({thing: 'shawarma'})
     // -> hello, shawarma
 
+    // for prevent caching that enabled by default
+    hello = fmt('hello, #{thing}', {noCache: true})
+
 License
 -------
 MIT
