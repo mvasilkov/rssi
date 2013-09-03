@@ -34,4 +34,8 @@ describe('rssi', function () {
         eq(fmt('#{a}'), fmt('#{a}'))
         noeq(fmt('#{a}'), fmt('#{b}'))
     })
+
+    it('should not cache templates', function () {
+        noeq(fmt('#{a}', {noCache: true}), fmt('#{a}', {noCache: true}))
+    })
 })
