@@ -34,4 +34,10 @@ describe('rssi', function () {
         eq(fmt('#{a}'), fmt('#{a}'))
         noeq(fmt('#{a}'), fmt('#{b}'))
     })
+
+    it('should accept noCache option', function () {
+        eq(fmt('#{a}', {noCache: true}), fmt('#{a}'))
+        noeq(fmt('#{b}'), fmt('#{b}', {noCache: true}))
+        noeq(fmt('#{a}', {noCache: true}), fmt('#{a}', {noCache: true}))
+    })
 })

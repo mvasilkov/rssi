@@ -8,8 +8,8 @@
         return '"+(typeof obj["' + bar + '"]!="undefined"?obj["' + bar + '"]:"' + foo + '")+"'
     }
 
-    function fmt(input) {
-        if (input in cache) return cache[input]
+    function fmt(input, options) {
+        if (!(options && options.noCache) && input in cache) return cache[input]
 
         var out = JSON.stringify(input).replace(/#\{(.*?)\}/g, rewrite)
         /* jshint boss: true, evil: true */
