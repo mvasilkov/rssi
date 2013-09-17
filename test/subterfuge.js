@@ -18,6 +18,13 @@ describe('subterfuge', function () {
         }).equal('Navi\nArimeka')
     })
 
+    it('should work with inherited method names', function () {
+        /* jshint -W001 */
+        fmt('#{hasOwnProperty}')({hasOwnProperty: 'omg'}).equal('omg')
+        fmt('#{toString}')({toString: 'wtf'}).equal('wtf')
+        fmt('#{valueOf}')({valueOf: 'bbq'}).equal('bbq')
+    })
+
     it('should retain #{fmt} for undefined vars', function () {
         var t = fmt('#{2} #{X} #{4}')
 
