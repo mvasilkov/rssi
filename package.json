@@ -1,6 +1,6 @@
 {
     "name": "rssi",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Ruby-like simple string interpolation",
     "keywords": ["interpolation", "string", "formatting", "template"],
     "author": "Mark Vasilkov (https://github.com/mvasilkov)",
@@ -19,7 +19,8 @@
         "jshint": "2.x",
         "mocha": "1.x",
         "browserify": "2.x",
-        "bower": "1.x"
+        "bower": "1.x",
+        "uglify-js": "2.x"
     },
     "license": "MIT"
 }
