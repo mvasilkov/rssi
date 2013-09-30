@@ -1,10 +1,10 @@
 var assert = require('assert'),
     fmt = require('../rssi')
 
-function eq(a, b) { assert.strictEqual(a, b) }
-function noeq(a, b) { assert.notEqual(a, b) }
-
 describe('rssi', function () {
+    function eq(a, b) { assert.strictEqual(a, b) }
+    function noeq(a, b) { assert.notEqual(a, b) }
+
     it('should be a function', function () { eq(typeof fmt, 'function') })
 
     it('should return function returning string', function () {
