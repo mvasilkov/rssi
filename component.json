@@ -1,0 +1,13 @@
+{
+    "name": "rssi",
+    "version": "0.0.5",
+    "main": "rssi.js",
+    "description": "Ruby-like simple string interpolation",
+    "keywords": ["string", "interpolation", "format", "printf", "ruby"],
+    "homepage": "https://github.com/mvasilkov/rssi/",
+    "author": "Mark Vasilkov (https://github.com/mvasilkov)",
+    "license": "MIT",
+    "scripts": [
+        "rssi.js"
+    ]
+}
