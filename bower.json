@@ -1,8 +1,8 @@
 {
     "name": "rssi",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "rssi.js",
-    "ignore": ["Makefile", "package.json", "test{_client,}", "usage"],
+    "ignore": ["Makefile", "{component,package}.json", "test{_client,}", "usage"],
     "devDependencies": {
         "requirejs": "2.x"
     }

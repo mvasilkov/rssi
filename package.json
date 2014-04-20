@@ -1,8 +1,9 @@
 {
     "name": "rssi",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Ruby-like simple string interpolation",
-    "keywords": ["interpolation", "string", "formatting", "template"],
+    "keywords": ["interpolation", "string", "format", "formatting", "template", "ruby"],
+    "homepage": "https://github.com/mvasilkov/rssi",
     "author": "Mark Vasilkov (https://github.com/mvasilkov)",
     "contributors": [
         "Viktor Konovalov (https://github.com/virpool)"
