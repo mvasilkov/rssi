@@ -1,5 +1,5 @@
 /* Ruby-like simple string interpolation for Node.js
- * Copyright (c) 2013 Mark Vasilkov (https://github.com/mvasilkov)
+ * Copyright (c) 2014 Mark Vasilkov (https://github.com/mvasilkov)
  * License: MIT */
 (function () {
     var cache = {}
@@ -16,7 +16,7 @@
         return (cache[input] = Function('obj', 'return ' + out))
     }
 
-    if (typeof module != 'undefined' && module.exports) module.exports = fmt
+    if (typeof module == 'object' && module.exports) module.exports = fmt
     else if (typeof define == 'function' && define.amd) define(function () { return fmt })
-    else if (typeof window != 'undefined') window.fmt = fmt
+    else if (typeof window == 'object') window.fmt = fmt
 }())
