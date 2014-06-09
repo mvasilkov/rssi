@@ -40,4 +40,10 @@ describe('rssi', function () {
         noeq(fmt('#{b}'), fmt('#{b}', {noCache: true}))
         noeq(fmt('#{a}', {noCache: true}), fmt('#{a}', {noCache: true}))
     })
+
+    it('should accept blank option', function() {
+        eq(fmt('it is #{blank_opt} here', {blank: true})(), 'it is  here')
+        eq(fmt('with#{blank_opt} object', {blank: true})({}), 'with object')
+        eq(fmt('it is only #{a}#{b}', {blank: true})({a:'a'}), 'it is only a')
+    })
 })
