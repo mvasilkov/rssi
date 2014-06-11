@@ -4,6 +4,8 @@ var assert = require('assert'),
 describe('rssi', function () {
     function eq(a, b) { assert.strictEqual(a, b) }
     function noeq(a, b) { assert.notEqual(a, b) }
+    var opt_blank = {blank: true}
+    var opt_nocache = {noCache: true}
 
     it('should be a function', function () { eq(typeof fmt, 'function') })
 
@@ -33,17 +35,19 @@ describe('rssi', function () {
     it('should cache templates', function () {
         eq(fmt('#{a}'), fmt('#{a}'))
         noeq(fmt('#{a}'), fmt('#{b}'))
+        eq(fmt('#{a}', opt_blank), fmt('#{a}', opt_blank))
+        noeq(fmt('#{a}'), fmt('#{a}', opt_blank))
     })
 
     it('should accept noCache option', function () {
-        eq(fmt('#{a}', {noCache: true}), fmt('#{a}'))
-        noeq(fmt('#{b}'), fmt('#{b}', {noCache: true}))
-        noeq(fmt('#{a}', {noCache: true}), fmt('#{a}', {noCache: true}))
+        eq(fmt('#{a}', opt_nocache), fmt('#{a}'))
+        noeq(fmt('#{b}'), fmt('#{b}', opt_nocache))
+        noeq(fmt('#{a}', opt_nocache), fmt('#{a}', opt_nocache))
     })
 
     it('should accept blank option', function() {
-        eq(fmt('it is #{blank_opt} here', {blank: true})(), 'it is  here')
-        eq(fmt('with#{blank_opt} object', {blank: true})({}), 'with object')
-        eq(fmt('it is only #{a}#{b}', {blank: true})({a:'a'}), 'it is only a')
+        eq(fmt('it is #{blank_opt} here', opt_blank)(), 'it is  here')
+        eq(fmt('with#{blank_opt} object', opt_blank)({}), 'with object')
+        eq(fmt('it is only #{a}#{b}', opt_blank)({a:'a'}), 'it is only a')
     })
 })
