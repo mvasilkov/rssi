@@ -2,13 +2,16 @@
  * Copyright (c) 2014 Mark Vasilkov (https://github.com/mvasilkov)
  * License: MIT */
 (function () {
-    var cache = {}
+    var cache_normal = {}
+    var cache_blank = {}
 
     var void_checker = 'if (typeof obj == "undefined") obj = {}; '
 
     function fmt(input, options) {
-        if (!(options && options.noCache) && input in cache) return cache[input]
         var blank = (options && options.blank)
+        var cache = blank ? cache_blank : cache_normal
+        if (!(options && options.noCache) && input in cache) return cache[input]
+
 
         var out = JSON.stringify(input).replace(/#\{(.*?)\}/g, function(foo, bar) {
             return '"+(typeof obj["' + bar + '"]!="undefined"?obj["' +
