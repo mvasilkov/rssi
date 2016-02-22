@@ -31,7 +31,7 @@ Examples
     hello({thing: 'shawarma'})
     // -> hello, shawarma
 
-    var goodbye = fmt('goodbye#{addon}, #{typeof}#{thing}');
+    var goodbye = fmt('goodbye#{addon}, #{typeof}#{thing}', {blank: true});
 
     goodbye({thing: 'world');
     // -> goodbye, world
