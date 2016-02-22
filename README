@@ -10,6 +10,19 @@ Installation
 
 Usage
 -----
+    fmt(<template> [, <options>])
+
+        <template> = [string] template with embedded Ruby-style references
+            (e.g. "hello, #{thing}")
+
+        <options>  = [object, optional] configures the generator function:
+            blank:   [boolean: false] interpolator will remove non-substituted
+                     references in output
+            noCache: [boolean: false] do NOT cache the interpolator function
+            (e.g. {blank: true})
+
+Examples
+--------
     var hello = fmt('hello, #{thing}')
 
     hello({thing: 'world'})
@@ -17,6 +30,14 @@ Usage
 
     hello({thing: 'shawarma'})
     // -> hello, shawarma
+
+    var goodbye = fmt('goodbye#{addon}, #{typeof}#{thing}');
+
+    goodbye({thing: 'world');
+    // -> goodbye, world
+
+    goodbye({thing: 'world', typeof: 'cruel ', addon: ' and good riddance'});
+    // -> goodbye and good riddance, cruel world
 
 License
 -------
